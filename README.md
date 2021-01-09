@@ -1,8 +1,8 @@
-# layoutdiffexample
+# LayoutDiff Demo project
 
-A new Flutter project.
+A Flutter project to demonstrate how to use the LayoutDiff. Feel free to create Pull Requests with layout changes to see it working.
 
-## Getting Started
+## Dashboard credentials
 
 This project is a starting point for a Flutter application.
 
