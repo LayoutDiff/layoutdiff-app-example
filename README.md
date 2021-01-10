@@ -5,7 +5,9 @@ A Flutter project to demonstrate how to use the LayoutDiff. Feel free to create 
 ## Dashboard Credentials
 
 You can see changes to be approved on https://app.layoutdiff.com/ using the below account:
+
 username: layoutdiffdemo
+
 password: Example01
 
 ## How to send the screenshots with layout changes to demo project
