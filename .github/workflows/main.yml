@@ -32,7 +32,7 @@ jobs:
           script: |
             # Running flutter integration tests
             /Users/runner/Library/Android/sdk/tools/bin/avdmanager list
-            cd ./layoutdiff-app-example
+            ls
             flutter pub get
             flutter drive --driver=test_driver/app_test.dart --target=test_driver/app.dart
             
