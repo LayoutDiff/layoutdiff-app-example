@@ -2,6 +2,8 @@
 
 A Flutter project to demonstrate how to use the LayoutDiff. Feel free to create Pull Requests with layout changes to see it working.
 
+# You can edit the code directly on Github and create a PR to see the CI pipeline with LayoutDiff working
+
 ## Dashboard Credentials
 
 You can see changes to be approved on https://app.layoutdiff.com/ using the below account:
