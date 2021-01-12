@@ -24,13 +24,9 @@ You can see an example how to take screenshots on integration tests on [test_dri
 
 ## How to send the screenshots with layout changes to demo project
 
-Open a bash on root of this project and execute the follow code:
+Open a bash on root of this project and execute: 
 
-```bash
-export IMAGEPATH=$(pwd)/screenshots/
-export PROJECTTOKEN=pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J
-
-for filename in $IMAGEPATH/*; do
-    curl -X POST -F "image=@$filename" https://app.layoutdiff.com/images/upload/$PROJECTTOKEN/$\( git log | grep -oP 'commit \K[a-f0-9]*' | head -1)
-done
+```
+export GITHUB_SHA=$( git log | grep -oP 'commit \K[a-f0-9]*' | head -1)  # This line isn't necessary in a github action
+sh send_screenshots.sh
 ```
