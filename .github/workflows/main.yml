@@ -1,0 +1,45 @@
+name: IntegrationTests
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on pull request events but only for the master branch
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  android-integration-test:
+    name: run integration test on Android emulator
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '8.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.12.13+hotfix.5'
+          channel: 'stable'
+          
+      - name: run tests
+        timeout-minutes: 30
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          profile: pixel_xl
+          script: |
+            # Running flutter integration tests
+            /Users/runner/Library/Android/sdk/tools/bin/avdmanager list
+            cd ./layoutdiff-app-example
+            flutter pub get
+            flutter drive --driver=test_driver/app_test.dart --target=test_driver/app.dart
+            
+            # Send screenshots to LayoutDiff
+            export IMAGEPATH=$(pwd)/screenshots/
+            export PROJECTTOKEN=pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J
+
+            for filename in $IMAGEPATH/*; do
+                curl -X POST -F "image=@$filename" https://app.layoutdiff.com/images/upload/$PROJECTTOKEN/$\( git log | grep -oP 'commit \K[a-f0-9]*' | head -1)
+            done
