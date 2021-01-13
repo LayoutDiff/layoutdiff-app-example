@@ -15,8 +15,6 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
       - uses: actions/setup-java@v1
         with:
           java-version: '8.x'
@@ -39,4 +37,5 @@ jobs:
             flutter drive --driver=test_driver/app_test.dart --target=test_driver/app.dart
             
             # Send screenshots to LayoutDiff
+            export GITHUB_SHA=${{ github.event.pull_request.head.sha }}
             sh send_screenshots.sh
