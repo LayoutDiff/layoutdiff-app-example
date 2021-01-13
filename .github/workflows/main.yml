@@ -37,5 +37,5 @@ jobs:
             flutter drive --driver=test_driver/app_test.dart --target=test_driver/app.dart
             
             # Send screenshots to LayoutDiff
-            export GITHUB_SHA=${{ github.event.pull_request.head.sha }}
+            export GITHUB_SHA=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.head.sha)
             sh send_screenshots.sh
