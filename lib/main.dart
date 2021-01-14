@@ -10,7 +10,7 @@ class LayoutDiffExample extends StatelessWidget {
       title: 'LayoutDiff Example',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('LayoutDiff Example'),
+          title: Text('LayoutDiff Example.'),
         ),
         body: Container(
           decoration: BoxDecoration(
