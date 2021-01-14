@@ -29,6 +29,5 @@ You can see an example how to take screenshots on integration tests on [test_dri
 Open a bash on root of this project and execute: 
 
 ```
-export GITHUB_SHA=$( git log | grep -oP 'commit \K[a-f0-9]*' | head -1)  # This line isn't necessary in a github action
-sh send_screenshots.sh
+sh send_screenshots.sh $( git log | grep -oP 'commit \K[a-f0-9]*' | head -1)
 ```
