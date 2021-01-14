@@ -17,7 +17,7 @@ class LayoutDiffExample extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.green[100], Colors.green[500]]
+              colors: [Colors.purple[100], Colors.purple[500]]
             )
           ),
           child: Center(
