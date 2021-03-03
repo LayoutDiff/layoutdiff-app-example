@@ -31,3 +31,5 @@ Open a bash on root of this project and execute:
 ```
 sh send_screenshots.sh $( git log | grep -oP 'commit \K[a-f0-9]*' | head -1)
 ```
+
+Hi :)
