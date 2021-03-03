@@ -25,18 +25,12 @@ jobs:
           
       - name: run tests
         timeout-minutes: 30
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: LayoutDiff/android-emulator-runner@v2
         with:
           api-level: 29
           profile: pixel_xl
           script: |
             # Running flutter integration tests
-            /Users/runner/Library/Android/sdk/tools/bin/avdmanager list
-            
-            echo ${{ github.event.pull_request.head.sha }}
-
             flutter pub get
             flutter drive --driver=test_driver/app_test.dart --target=test_driver/app.dart
-            
-            # Send screenshots to LayoutDiff
-            sh send_screenshots.sh ${{ github.event.pull_request.head.sha }}
+
