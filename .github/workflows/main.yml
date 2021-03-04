@@ -25,7 +25,7 @@ jobs:
           
       - name: run tests
         timeout-minutes: 30
-        uses: LayoutDiff/android-emulator-runner@v2.15
+        uses: LayoutDiff/android-emulator-runner@v1
         with:
           api-level: 29
           profile: pixel_xl
