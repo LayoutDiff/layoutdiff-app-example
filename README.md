@@ -23,11 +23,3 @@ Execute below command to run flutter integration tests
 
 ## Taking screenshots
 You can see an example how to take screenshots on integration tests on [test_driver/app_test.dart](https://github.com/LayoutDiff/layoutdiff-app-example/blob/master/test_driver/app_test.dart)
-
-## How to send the screenshots with layout changes to demo project
-
-Open a bash on root of this project and execute: 
-
-```
-sh send_screenshots.sh $( git log | grep -oP 'commit \K[a-f0-9]*' | head -1)
-```
