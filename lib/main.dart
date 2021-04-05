@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import "dart:math";
 
 void main() => runApp(LayoutDiffExample());
 
 class _BoxDecorationState extends State<LayoutDiffBoxDecoration> {
   final List<MaterialColor> _bgColors = [Colors.blue, Colors.green, Colors.yellow, Colors.red, Colors.brown];
+  int _bgColorIndex = 0;
   MaterialColor _bgColor = Colors.blue;
 
-  MaterialColor getRandomColor<T>() {
-    
-    final random = new Random();
-    var i = random.nextInt(_bgColors.length);
-    var color = _bgColors[i];
 
-    if(color == _bgColor) {
-      return getRandomColor();
+  MaterialColor getBgColor<T>() {
+    var color =_bgColors[_bgColorIndex];
+
+    _bgColorIndex += 1;
+
+    if(_bgColorIndex >= _bgColors.length) {
+      _bgColorIndex = 0;
     }
 
     return color;
@@ -45,7 +45,7 @@ class _BoxDecorationState extends State<LayoutDiffBoxDecoration> {
               child: Text('Press'),
               onPressed: () {  
                 setState(() {
-                  _bgColor = getRandomColor();
+                  _bgColor = getBgColor();
                 });
               },
             )
