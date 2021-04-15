@@ -1,39 +1,47 @@
 name: IntegrationTests
-
 # Controls when the action will run. 
 on:
   # Triggers the workflow on pull request events but only for the master branch
   pull_request:
     branches: [ master ]
-
-  # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manuanlly from the Actions tab
   workflow_dispatch:
-
 jobs:
   android-integration-test:
     name: run integration test on Android emulator
     runs-on: macOS-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2  # Checkout on git branch
+      
+      ###############################################################
+      # You can feel free to do all environment setup you need here #
+      ###############################################################
+
+      # Selecting the java 8 version on our pipeline environment. It can change based on required java version for your android application
       - uses: actions/setup-java@v1
         with:
           java-version: '8.x'
+      
+      # The example application was develop using flutter so we need to setup the used flutter version on own pipeline environment
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '1.12.13+hotfix.5'
           channel: 'stable'
+
+      ##################
+      # Test execution #
+      ##################
           
       - name: run tests
         timeout-minutes: 30
         uses: LayoutDiff/android-emulator-runner@v1
         with:
-          api-level: 29
-          profile: pixel_xl
-          screenshots-path: screenshots/
-          project-token: pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J
+          api-level: 29  # Android emulator API level
+          profile: pixel_xl  # Android emulator profile
+          screenshots-path: screenshots/  # Where you'll save the screenshots
+          project-token: pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J  # The LayoutDiff project token
           ref: ${{ github.event.pull_request.head.sha }}
-          script: |
+          script: |  # Bash commands to run the appium tests
             # Running flutter integration tests
             flutter pub get
             flutter drive --driver=test_driver/app_test.dart --target=test_driver/app.dart
-
