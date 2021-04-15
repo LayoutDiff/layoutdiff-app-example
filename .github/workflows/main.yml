@@ -9,7 +9,7 @@ on:
 jobs:
   android-integration-test:
     name: run integration test on Android emulator
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2  # Checkout on git branch
       
