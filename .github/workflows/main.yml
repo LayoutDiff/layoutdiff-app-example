@@ -27,6 +27,18 @@ jobs:
         with:
           flutter-version: '1.12.13+hotfix.5'
           channel: 'stable'
+      
+      # Installing Appium server
+      - uses: moatazeldebsy/appium-server-gitHub-action@V1.0.4
+
+      # Installing python and python requirements
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+      
+      - run: pip install -r requirements.txt
+        shell: bash
 
       ##################
       # Test execution #
@@ -42,6 +54,5 @@ jobs:
           project-token: pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J  # The LayoutDiff project token
           ref: ${{ github.event.pull_request.head.sha }}
           script: |  # Bash commands to run the appium tests
-            # Running flutter integration tests
-            flutter pub get
-            flutter drive --driver=test_driver/app_test.dart --target=test_driver/app.dart
+            # Running appium tests
+            python test_appium/example.py
