@@ -9,7 +9,7 @@ on:
 jobs:
   android-integration-test:
     name: run integration test on Android emulator
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2  # Checkout on git branch
       
@@ -28,8 +28,12 @@ jobs:
           flutter-version: '1.12.13+hotfix.5'
           channel: 'stable'
       
-      # Installing Appium server
-      - uses: moatazeldebsy/appium-server-gitHub-action@V1.0.4
+      # Installing and running Appium server
+      - run: npm install -g appium
+        shell: bash
+
+      - run: appium &> /dev/null
+        shell: bash
 
       # Installing python and python requirements
       - uses: actions/setup-python@v2
