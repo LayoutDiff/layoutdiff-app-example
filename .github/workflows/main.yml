@@ -32,7 +32,7 @@ jobs:
       - run: npm install -g appium
         shell: bash
 
-      - run: appium &> /dev/null
+      - run: appium &> /dev/null &
         shell: bash
 
       # Installing python and python requirements
