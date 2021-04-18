@@ -44,6 +44,12 @@ jobs:
       - run: pip install -r test_appium/requirements.txt
         shell: bash
 
+      #####################
+      # Build application #
+      #####################
+      - run: flutter build apk
+        shell: bash
+
       ##################
       # Test execution #
       ##################
@@ -58,5 +64,9 @@ jobs:
           project-token: pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J  # The LayoutDiff project token
           ref: ${{ github.event.pull_request.head.sha }}
           script: |  # Bash commands to run the appium tests
+            # Setting up environment variables
+            export DEVICE_NAME=pixel_xl
+            export APK_PATH="$(pwd)/build/app/outputs/apk/release/app-release.apk"
+
             # Running appium tests
             python test_appium/example.py

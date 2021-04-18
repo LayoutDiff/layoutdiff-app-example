@@ -1,3 +1,4 @@
+import os
 from appium import webdriver
 from time import sleep
 
@@ -5,8 +6,8 @@ from time import sleep
 desired_caps = {
     "platformName": "Android",
     "platformVersion": "9",
-    "deviceName": "Pixel 4 ZL (Edited) API 28",
-    "app": "/home/andrebrenda/dev/layoutdiff-example/build/app/outputs/apk/release/app-release.apk",
+    "deviceName": os.getenv("DEVICE_NAME"),
+    "app": os.getenv("APK_PATH"),
     "appPackage": "com.example.layoutdiffexample",
     "appActivity": ".MainActivity",
     "automationName": "UiAutomator2"
