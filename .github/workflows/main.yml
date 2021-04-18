@@ -60,6 +60,7 @@ jobs:
         with:
           avd-name: "emulator-name"
           api-level: 29  # Android emulator API level
+          arch: x86_64
           profile: pixel_xl  # Android emulator profile
           screenshots-path: screenshots/  # Where you'll save the screenshots
           project-token: pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J  # The LayoutDiff project token
