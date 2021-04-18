@@ -65,4 +65,4 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           script: |  # Bash commands to run the appium tests
             # Running appium tests
-            python test_appium/example.py --device-name=pixel_xl --apk-path="$(pwd)/build/app/outputs/apk/release/app-release.apk"
+            python test_appium/example.py --device-name=pixel_xl --apk-path="$(pwd)/build/app/outputs/flutter-apk/app-release.apk"
