@@ -13,8 +13,8 @@ args=parser.parse_args()
 desired_caps = {
     "platformName": "Android",
     "platformVersion": "9",
-    "deviceName": args.apk_path,
-    "app": args.device_name,
+    "deviceName": args.device_name,
+    "app": args.apk_path,
     "appPackage": "com.example.layoutdiffexample",
     "appActivity": ".MainActivity",
     "automationName": "UiAutomator2"
