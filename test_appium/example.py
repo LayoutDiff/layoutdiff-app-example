@@ -1,4 +1,4 @@
-import argparse, sys
+import argparse, sys, base64
 from appium import webdriver
 from time import sleep
 
@@ -26,7 +26,7 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
 def save_screenshot(screenshot_name):
     with open(f"{args.screenshot_path}/{screenshot_name}.png", "wb") as file:
-        file.write(driver.get_screenshot_as_base64())
+        file.write(base64.b64decode(driver.get_screenshot_as_base64()))
 
 driver.implicitly_wait(10)  # Set the amount of time the driver should wait when searching for elements (it's optional)
 
@@ -34,20 +34,20 @@ driver.implicitly_wait(10)  # Set the amount of time the driver should wait when
 save_screenshot("home_screen")
 el1 = driver.find_element_by_accessibility_id("Press")
 el1.click()
-save_screenshot("home_screen_click_1")
+save_screenshot("home_screen_click_blue")
 
 sleep(1)
 el1.click()
-save_screenshot("home_screen_click_2")
+save_screenshot("home_screen_click_green")
 
 sleep(1)
 el1.click()
-save_screenshot("home_screen_click_3")
+save_screenshot("home_screen_click_yellow")
 
 sleep(1)
 el1.click()
-save_screenshot("home_screen_click_4")
+save_screenshot("home_screen_click_red")
 
 sleep(1)
 el1.click()
-save_screenshot("home_screen_click_5")
+save_screenshot("home_screen_click_brown")
