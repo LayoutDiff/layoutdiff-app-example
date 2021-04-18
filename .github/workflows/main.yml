@@ -58,6 +58,7 @@ jobs:
         timeout-minutes: 30
         uses: LayoutDiff/android-emulator-runner@v1
         with:
+          avd-name: "emulator-name"
           api-level: 28  # Android emulator API level
           profile: pixel_xl  # Android emulator profile
           screenshots-path: screenshots/  # Where you'll save the screenshots
@@ -65,4 +66,4 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           script: |  # Bash commands to run the appium tests
             # Running appium tests
-            python test_appium/example.py --device-name=test --apk-path="$(pwd)/build/app/outputs/flutter-apk/app-release.apk"
+            python test_appium/example.py --device-name=emulator-name --apk-path="$(pwd)/build/app/outputs/flutter-apk/app-release.apk"
