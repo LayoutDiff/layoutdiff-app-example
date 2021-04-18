@@ -12,7 +12,7 @@ args=parser.parse_args()
 # Add here the desired capabitilies described on appium desktop step
 desired_caps = {
     "platformName": "Android",
-    "platformVersion": "9",
+    "platformVersion": "10",
     "deviceName": args.device_name,
     "app": args.apk_path,
     "appPackage": "com.example.layoutdiffexample",
