@@ -25,7 +25,7 @@ jobs:
       # The example application was develop using flutter so we need to setup the used flutter version on own pipeline environment
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.12.13+hotfix.5'
+          flutter-version: '1.22.6'
           channel: 'stable'
       
       # Installing and running Appium server
