@@ -58,7 +58,7 @@ jobs:
         timeout-minutes: 30
         uses: LayoutDiff/android-emulator-runner@v1
         with:
-          api-level: 29  # Android emulator API level
+          api-level: 28  # Android emulator API level
           profile: pixel_xl  # Android emulator profile
           screenshots-path: screenshots/  # Where you'll save the screenshots
           project-token: pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J  # The LayoutDiff project token
