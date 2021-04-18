@@ -13,6 +13,8 @@ desired_caps = {
     "automationName": "UiAutomator2"
 }
 
+print(desired_caps)
+
 # Instantiating the appium driver
 driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 driver.implicitly_wait(10)  # Set the amount of time the driver should wait when searching for elements (it's optional)
