@@ -64,5 +64,7 @@ jobs:
           project-token: pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J  # The LayoutDiff project token
           ref: ${{ github.event.pull_request.head.sha }}
           script: |  # Bash commands to run the appium tests
+            ls "$(pwd)/build/app/outputs/flutter-apk"
+            ls "build/app/outputs/flutter-apk/"
             # Running appium tests
             python test_appium/example.py --device-name=pixel_xl --apk-path="$(pwd)/build/app/outputs/flutter-apk/app-release.apk"
