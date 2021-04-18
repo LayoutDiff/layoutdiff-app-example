@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(LayoutDiffExample());
 
 class _BoxDecorationState extends State<LayoutDiffBoxDecoration> {
-  final List<MaterialColor> _bgColors = [Colors.blue, Colors.green, Colors.yellow, Colors.red, Colors.brown];
+  final List<MaterialColor> _bgColors = [Colors.green, Colors.yellow, Colors.red, Colors.brown, Colors.blue];
   int _bgColorIndex = 0;
   MaterialColor _bgColor = Colors.blue;
 
