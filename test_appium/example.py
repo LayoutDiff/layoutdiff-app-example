@@ -25,7 +25,7 @@ desired_caps = {
 driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
 def save_screenshot(screenshot_name):
-    with open(f"{args.screenshot_path}/{screenshot_name}.png", "b") as file:
+    with open(f"{args.screenshot_path}/{screenshot_name}.png", "wb") as file:
         file.write(driver.get_screenshot_as_base64())
 
 driver.implicitly_wait(10)  # Set the amount of time the driver should wait when searching for elements (it's optional)
