@@ -1,13 +1,20 @@
-import os
+import argparse, sys
 from appium import webdriver
 from time import sleep
+
+parser=argparse.ArgumentParser()
+
+parser.add_argument('--apk-path', help='Path for apk file')
+parser.add_argument('--device-name', help='Emulator name')
+
+args=parser.parse_args()
 
 # Add here the desired capabitilies described on appium desktop step
 desired_caps = {
     "platformName": "Android",
     "platformVersion": "9",
-    "deviceName": os.getenv("DEVICE_NAME"),
-    "app": os.getenv("APK_PATH"),
+    "deviceName": args.apk_path,
+    "app": args.device_name,
     "appPackage": "com.example.layoutdiffexample",
     "appActivity": ".MainActivity",
     "automationName": "UiAutomator2"
