@@ -63,9 +63,9 @@ jobs:
           arch: x86_64
           profile: pixel_xl  # Android emulator profile
           screenshots-path: screenshots/  # Where you'll save the screenshots
-          project-token: pLp5yB4RcQVVxsR8inOkQ4rp4qVhWvK5kcYPpTiyaopFb5NZDgxlMtMyVbSb7lonvbKPurSomq171dvyGJZA9bLvfgv7VzuBiExPK3gZwWxMc6m9eZuWU7lZnKfyQABZbVCeWY3R6P3GKxu2iKzlptcxVeDxmU5Wv0yis5yR8iY17LvuNciPzDHlOMMRnLLTwExWCI7J  # The LayoutDiff project token
+          project-token: $${{ secrets.LAYOUTDIFF_TOKEN }}  # The LayoutDiff project token
           ref: ${{ github.event.pull_request.head.sha }}
-          script: |  # Bash commands to run the appium tests
+          script: |  # Bash commands to run the appium tests and save images on screenshot folder
             mkdir screenshots/
 
             # Running appium tests
