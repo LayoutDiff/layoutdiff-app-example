@@ -1,3 +1,4 @@
 Appium-Python-Client==1.0.2
 selenium==3.141.0
 urllib3==1.26.3
+Pillow==8.2.0
