@@ -40,3 +40,4 @@ lib/generated_plugin_registrant.dart
 screenshots/
 .ionide/
 flutter_*.log
+.vscode/
